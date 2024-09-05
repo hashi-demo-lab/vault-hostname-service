@@ -1,0 +1,4 @@
+Flask==2.2.5
+hvac==2.3.0
+flask-cors==3.0.10
+Werkzeug==2.2.3
