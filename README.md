@@ -52,7 +52,7 @@ This microservice generates unique hostnames based on user inputs (`application`
 
 ## Improvements to Consider
 
-1. **Distributed Locking Mechanism**: For highly concurrent environments, consider using a distributed locking mechanism like Consul or Redis with stronger guarantees and features like automatic deadlock detection.
+1. **Distributed Locking Mechanism**: For highly concurrent environments, consider using a distributed locking mechanism like Consul with stronger guarantees and features like automatic deadlock detection.
 2. **Fallback on Lock Timeout**: Implement a fallback mechanism when acquiring a lock fails after multiple retries (e.g., notify the user or retry later).
 3. **More Granular Locks**: For reducing contention, consider a sharding or partitioning strategy to allow multiple processes to generate names concurrently without excessive lock contention.
 4. **Monitoring and Alerts**: Implement monitoring to detect failed lock acquisitions or other errors. Alerts can help identify when the system is under high contention or facing performance issues with Vault.
