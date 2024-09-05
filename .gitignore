@@ -35,3 +35,12 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# python virtual environment
+.venv/
+
+# Ignore .DS_Store files
+.DS_Store
+
+# Ignore crt files
+*.crt
