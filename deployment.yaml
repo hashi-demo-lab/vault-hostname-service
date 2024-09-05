@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hostnaming-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hostnaming-service
+  template:
+    metadata:
+      labels:
+        app: hostnaming-service
+    spec:
+      containers:
+      - name: hostnaming-service
+        image: cloudbrokeraz/hostnaming-service:2.9.9
+        ports:
+        - containerPort: 5000
+        env:
+        - name: VAULT_ADDR
+          value: "https://vault-dc1-active.my-vault-demo.svc.cluster.local:8200"
+        - name: VAULT_TOKEN
+          value: "<my_vault_token>"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hostnaming-service
+spec:
+  selector:
+    app: hostnaming-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+    nodePort: 32001  # Assign a node port (within range 30000-32767)
+  type: NodePort
+
