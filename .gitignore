@@ -37,7 +37,7 @@ override.tf.json
 terraform.rc
 
 # python virtual environment
-.venv/
+venv/
 
 # Ignore .DS_Store files
 .DS_Store
